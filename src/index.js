@@ -18,7 +18,7 @@ app.listen(app.get('port'),()=>{
 app.use(morgan('dev'))
 // permitir peticiones remotas
 app.use(cors())
-// middlewares  para interprestar los objetos json
+// middlewares  para interpretar los objetos json
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
@@ -27,9 +27,15 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname, '../public')))
 
 // rutas: nombre de dominio + ----
-// http://localhost:4000/prueba
+// http://localhost:4001/prueba
 app.get('/productos', (req, res)=>{
-res.send('Esto es una prueba de la peticion GET')
+res.send('aqui tengop que retornar un arreglo de productos')
+})
+app.post('/productos2', (req, res)=>{
+res.send('aqui devolvemos un producto')
+})
+app.get('/productos2', (req, res)=>{
+res.send('aqui devolvemos un producto')
 })
 
 

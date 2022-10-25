@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 
-const url= 'mongodb://localhost:27017/cafe-branch';
+// localhost: 127.0.0.1
+// peticion a base de datos
+const url= 'mongodb://127.0.0.1:27017/cafe-branch';
 
 const connectDB = async ()=>{
     console.log('prueba')
