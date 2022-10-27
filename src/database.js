@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 const url= 'mongodb://127.0.0.1:27017/cafe-branch';
 
 const connectDB = async ()=>{
-    console.log('prueba')
+
     try{
         await mongoose.connect(url);
         console.log('BD connectada')
