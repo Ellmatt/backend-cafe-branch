@@ -33,3 +33,19 @@ export const crearProducto = async (req, res) => {
     });
   }
 };
+
+export const obtenerProducto = async(req, res)=>{
+try{
+// obtener el parametro
+console.log(req.params.id)
+// peditle a la bd buscar el documento que concide con el id del parametro
+const productoBuscado = await Producto.findById(req.params.id)
+// responder con el producto encontrado
+res.status(200).json(productoBuscado)
+}catch(error){
+  console.log(error)
+  res.status(404).json({
+    mensaje:'Error no se pudo encontrar el producto solicitado'
+  })
+}
+}
