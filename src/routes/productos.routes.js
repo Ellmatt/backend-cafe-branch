@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   crearProducto,
+  editarProducto,
   listarProductos,
   obtenerProducto,
 } from "../controllers/productos.controllers";
@@ -11,7 +12,7 @@ router.route("/productos").get(listarProductos).post(crearProducto);
 
 router.route('/productos/:id')
 .get(obtenerProducto)
-// .put()
+.put(editarProducto)
 // .delete()
 
 export default router;
