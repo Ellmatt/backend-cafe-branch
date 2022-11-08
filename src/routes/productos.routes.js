@@ -60,12 +60,3 @@ router
 
 export default router;
 
-// app.get('/productos', (req, res)=>{
-//     res.send('aqui tengop que retornar un arreglo de productos')
-//     })
-//     app.post('/productos2', (req, res)=>{
-//     res.send('aqui devolvemos un producto')
-//     })
-//     app.get('/productos2', (req, res)=>{
-//     res.send('aqui devolvemos un producto')
-//     })
