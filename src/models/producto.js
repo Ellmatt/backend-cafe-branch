@@ -16,6 +16,7 @@ const productoSchema = new Schema({
   imagen: {
     type: String,
     required: true,
+    value: /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/,
   },
   categoria: {
     type: String,
@@ -23,7 +24,7 @@ const productoSchema = new Schema({
   },
 });
 
-// aqui realizamos el modelo
+
 const Producto = mongoose.model("producto", productoSchema);
 
 export default Producto;
