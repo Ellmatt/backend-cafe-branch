@@ -9,7 +9,7 @@ const usuarioSchema = new Schema({
   },
   password: {
     type: Number,
-    required: true,
+    // required: true,
     minLength: 1,
     maxLength: 10000,
   },

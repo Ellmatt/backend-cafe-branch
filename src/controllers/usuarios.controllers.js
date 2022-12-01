@@ -84,8 +84,8 @@ export const crearUsuario = async (req, res) => {
 
     res.status(201).json({
       mensaje: "usuario creado",
-      // email: usuario.email,
-      // uid: usuario._id,
+      email: usuario.email,
+      uid: usuario._id,
     });
   } catch (error) {
     console.log(error);
