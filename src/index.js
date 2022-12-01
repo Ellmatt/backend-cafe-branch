@@ -4,7 +4,7 @@ import cors from 'cors'
 import path from 'path'
 import './database'
 import router from "./routes/productos.routes";
-import authRouter from './routes/usuarios.routes'
+import usuariosRouter from './routes/usuarios.routes'
 
 const app = express();
 
@@ -25,5 +25,5 @@ app.use(express.static(path.join(__dirname, '../public')))
 
 
 app.use('/apicafe', router)
-app.use('/apicafe/auth', authRouter)
+app.use('/apicafe/usuarios', usuariosRouter)
 
