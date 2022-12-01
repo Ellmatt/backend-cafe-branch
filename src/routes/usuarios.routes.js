@@ -1,12 +1,14 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { crearUsuario, login } from "../controllers/usuarios.controllers";
+
+import { crearUsuario, listarUsuarios, login } from "../controllers/usuarios.controllers";
 
 const router = Router();
 
 //agregar las validaciones con express-validator
 router
   .route("/")
+  .get(listarUsuarios)
   .post(
     [ 
       check("email", "El email es obligatorio").isEmail(),
