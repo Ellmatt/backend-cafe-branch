@@ -77,15 +77,15 @@ export const crearUsuario = async (req, res) => {
 
     //guardamos el nuevo usuario en la BD
     usuario = new Usuario(req.body);
-    const salt = bcrypt.genSaltSync();
-    usuario.password = bcrypt.hashSync(password, salt);
+    // const salt = bcrypt.genSaltSync();
+    // usuario.password = bcrypt.hashSync(password, salt);
 
     await usuario.save();
 
     res.status(201).json({
       mensaje: "usuario creado",
-      email: usuario.email,
-      uid: usuario._id,
+      // email: usuario.email,
+      // uid: usuario._id,
     });
   } catch (error) {
     console.log(error);
