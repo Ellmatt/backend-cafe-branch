@@ -52,48 +52,35 @@ export const login = async (req, res) => {
     });
   }
 };
-export const crearUsuario = async (req, res) => {
+export const crearUsuario = async(req, res) =>{
   try {
-    // manejar los errores de la validacion
-    const errors = validationResult(req);
-    // errors.isEmpty() devuelve false si hay errores
-    if (!errors.isEmpty()) {
+    const errores = validationResult(req)
+    if(!errores.isEmpty()){
       return res.status(400).json({
-        errors: errors.array(),
-      });
+        errores: errores.array()
+      })
     }
+    const {email} = req.body;
 
-    const { email, password } = req.body;
-
-    //verificar si el email ya existe
-    // let usuario = await Usuario.findOne({email: req.body.email})
-    let usuario = await Usuario.findOne({ email });
-    if (usuario) {
-      //si el usuario existe
+    let usuario = await Usuario.findOne({email});
+    if(usuario){
       return res.status(400).json({
-        mensaje: "ya existe un usuario con el correo enviado",
-      });
+        message: "Ya existe un usuario con el correo enviado"
+      })
     }
-
-    //guardamos el nuevo usuario en la BD
-    usuario = new Usuario(req.body);
-    // const salt = bcrypt.genSaltSync();
-    // usuario.password = bcrypt.hashSync(password, salt);
-
-    await usuario.save();
-
-    res.status(201).json({
-      mensaje: "usuario creado",
-      email: usuario.email,
-      uid: usuario._id,
-    });
+      usuario = new Usuario(req.body);
+      
+      await usuario.save();
+      res.status(201).json({
+          message: "El usuario fue creado correctamente"
+      })
   } catch (error) {
-    console.log(error);
-    res.status(400).json({
-      mensaje: "El usuario no pudo ser creado",
-    });
+      console.log(error)
+      res.status(401).json({
+          message:"Error al crear un usuario"
+      })
   }
-};
+}
 export const listarUsuarios = async (req, res) =>{
   try {
     const listaUsuarios = await Usuario.find();
